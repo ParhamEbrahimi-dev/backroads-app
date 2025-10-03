@@ -1,4 +1,5 @@
 import { pageLinks } from "../data";
+import PageLink from "./PageLink";
 
 type classParam = {
     ulClassName: string,
@@ -9,12 +10,7 @@ const PageLinks = ({ ulClassName, aClassName }: classParam) => {
     return (
         <ul className={ulClassName} id="nav-links">
             {pageLinks.map((link) => {
-                const { id, href, text } = link
-                return (
-                    <li key={id}>
-                        <a href={href} className={aClassName}>{text}</a>
-                    </li>
-                )
+                return <PageLink key={link.id} {...link} aClassName={aClassName} />
             })}
 
         </ul>
